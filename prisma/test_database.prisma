@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/test_database"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Kolesa {
+  id Int @id @default(autoincrement())
+
+  Order_id      String
+  Brand         String
+  Model         String
+  Year          String
+  About         String @db.VarChar(9999)
+  Phone_numbers String
+  Link          String
+}
+
+model Olx {
+  id Int @id @default(autoincrement())
+
+  Order_id      String
+  Name_Order    String
+  Price         String
+  About         String @db.VarChar(9999)
+  Name          String
+  Phone_numbers String
+  Link          String
+}
